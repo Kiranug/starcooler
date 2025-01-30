@@ -1,8 +1,10 @@
-FROM mcr.microsoft.com/windows/servercore:ltsc2025
+# escape=`
+FROM mcr.microsoft.com/windows/servercore:ltsc2022  # Change to latest available LTSC version
 
-RUN powershell -Command `
-    Add-WindowsFeature Web-Server; `
-    Invoke-WebRequest -UseBasicParsing -Uri "https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.10/ServiceMonitor.exe" -OutFile "C:\ServiceMonitor.exe"
+SHELL ["powershell", "-Command"]
+
+RUN Install-WindowsFeature -Name Web-Server; `
+    Invoke-WebRequest -UseBasicParsing -Uri "https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.10/ServiceMonitor.exe" -OutFile "C:\\ServiceMonitor.exe"
 
 # Copy application files
 COPY ./app /inetpub/wwwroot # Ensure "./app" 
