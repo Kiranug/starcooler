@@ -9,7 +9,7 @@ on:
       - dev
 
 env:
-  ACR_NAME: kiranacrdevops.azurecr.io # Replace with your ACR name
+  ACR_NAME: kiranacrdevops # Replace with your ACR name
   AKS_CLUSTER_NAME: dev-aks-cluster # Replace with your AKS cluster name
   RESOURCE_GROUP: infra-rg # Replace with your resource group
   APP_NAME: "windows-app"
