@@ -9,12 +9,12 @@ on:
       - main
 
 env:
-  ACR_NAME: <your-acr-name> # Replace with your ACR name
-  AKS_CLUSTER_NAME: <your-aks-cluster-name> # Replace with your AKS cluster name
-  RESOURCE_GROUP: <your-resource-group> # Replace with your resource group
+  ACR_NAME: kiranacrdevops # Replace with your ACR name
+  AKS_CLUSTER_NAME: dev-aks-cluster # Replace with your AKS cluster name
+  RESOURCE_GROUP: infra-rg # Replace with your resource group
   APP_NAME: "windows-app"
   APP_VERSION: "latest"
-  KEY_VAULT_NAME: <your-key-vault-name> # Replace with your Key Vault name
+  KEY_VAULT_NAME: starwinappkey # Replace with your Key Vault name
 
 jobs:
   build-and-push:
