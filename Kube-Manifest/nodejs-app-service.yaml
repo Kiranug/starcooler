@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-app-service
+  name: windows-app-service
 spec:
-  type: ClusterIP
   selector:
-    app: nodejs-app
+    app: windows-app
   ports:
-    - port: 80
-      targetPort: 3000
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP
