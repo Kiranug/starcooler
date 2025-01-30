@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: windows-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: windows-app
+  template:
+    metadata:
+      labels:
+        app: windows-app
+    spec:
+      containers:
+      - name: windows-app
+        image: kiranacrdevops.azurecr.io/starwin-app:v1.0 # Placeholders
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: app-data
+          mountPath: C:\app-data
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: db-password
+      volumes:
+      - name: app-data
+        persistentVolumeClaim:
+          claimName: windows-app-pvc
+      nodeSelector:
+        kubernetes.io/os: windows
