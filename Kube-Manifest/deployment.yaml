@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: windows-app
-        image: kiranacrdevops.azurecr.io/starwin-app:v1.0 # Placeholders
+        image: kiranacrdevops.azurecr.io/windows-app:latest # Placeholders
         ports:
         - containerPort: 80
         volumeMounts:
