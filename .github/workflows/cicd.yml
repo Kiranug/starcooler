@@ -34,8 +34,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.APP_VERSION }} .
-          docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
+          docker build -t ${{ env.ACR_NAME }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }} .
+          docker push ${{ env.ACR_NAME }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
 
   deploy:
     runs-on: windows-latest
